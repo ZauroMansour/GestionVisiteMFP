@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande | Plateforme demandeurs!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {#        {{ include('visite/_form.html.twig') }}#}
+        <div id="wizard_container">
+            {{ form_start(form) }}
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="breadcrumbs">
+                    <a href="{{ path('structure') }}">Accueil</a>
+                    <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <a href="{{ path('service', { id_structure: service.structure.id }) }}">{{ service.structure.nom }}</a>
+                    <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span>{{ service.nom }}</span>
+                </div>
+                <!-- Last step ============================== -->
+                <div class="submit step" id="end">
+                    <div class="question_title">
+                        <h3>Traiter la demande</h3>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4">
+                            <div class="box_general box_general_form_new">
+                                {% if service.agent %}
+                                    <div class="form-group">
+                                        {{ form_label(form.matricule) }}
+                                        {{ form_errors(form.matricule) }}
+                                        {{ form_widget(form.matricule, {'attr': {'class': 'required form-control', 'placeholder': 'Matricule'}}) }}
+                                    </div>
+                                {% else %}
+                                    <div class="form-group">
+                                        {{ form_label(form.cin) }}
+                                        {{ form_errors(form.cin) }}
+                                        {{ form_widget(form.cin, {'attr': {'class': 'required form-control', 'placeholder': 'Numéro d\'identité (Derrière la CNI)'}}) }}
+                                    </div>
+                                {% endif %}
+                                <div class="form-group">
+                                    {{ form_label(form.prenom_visiteur) }}
+                                    {{ form_errors(form.prenom_visiteur) }}
+                                    {{ form_widget(form.prenom_visiteur, {'attr': {'class': 'required form-control', 'placeholder': 'Prénom'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.nom_visiteur) }}
+                                    {{ form_errors(form.nom_visiteur) }}
+                                    {{ form_widget(form.nom_visiteur, {'attr': {'class': 'required form-control', 'placeholder': 'Nom'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.datenaiss) }}
+                                    {{ form_errors(form.datenaiss) }}
+                                    {{ form_widget(form.datenaiss) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.lieunaiss) }}
+                                    {{ form_errors(form.lieunaiss) }}
+                                    {{ form_widget(form.lieunaiss) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box_general box_general_form_new">
+                                <div class="form-group add_bottom_30">
+                                    {{ form_label(form.structure) }}
+                                    {{ form_errors(form.structure) }}
+                                    <div class="styled-select">
+                                        {{ form_widget(form.structure) }}
+                                    </div>
+                                </div>
+                                <div class="form-group add_bottom_30">
+                                    {{ form_label(form.service) }}
+                                    {{ form_errors(form.service) }}
+                                    <div class="styled-select">
+                                        {{ form_widget(form.service) }}
+                                    </div>
+                                </div>
+                                <div class="form-group add_bottom_30">
+                                    {{ form_label(form.motifDemande) }}
+                                    {{ form_errors(form.motifDemande) }}
+                                    <div class="styled-select">
+                                        {{ form_widget(form.motifDemande) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /box_general -->
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box_general box_general_form_new">
+                                <div class="form-group">
+                                    {{ form_label(form.demande) }}
+                                    {{ form_errors(form.demande) }}
+                                    {{ form_widget(form.demande, {'attr': {'class': 'required form-control', 'placeholder': 'Lettre de demande', 'rows': '7'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.reponse) }}
+                                    {{ form_errors(form.reponse) }}
+                                    {{ form_widget(form.reponse, {'attr': {'class': 'required form-control', 'placeholder': 'Lettre de demande', 'rows': '7'}}) }}
+                                </div>
+                            </div>
+                            <!-- /box_general -->
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /Last step ============================== -->
+            </div>
+
+            <div id="bottom-wizard">
+                <button type="submit" class="submit" name="submitAction" value="valider" >Valider la demande</button>
+                <a href="{{ path('visite_rejet', {'id': visite.id}) }}" class="reset">Rejeter la demande</a>
+            </div>
+
+            <div style="display: none;">
+                {{ form_widget(form.region) }}
+                {{ form_widget(form.departement) }}
+                {{ form_widget(form.adresse) }}
+                {{ form_widget(form.telephone) }}
+                {{ form_widget(form.genre) }}
+            </div>
+            {{ form_widget(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+    <!-- /Container -->
+
+{% endblock %}

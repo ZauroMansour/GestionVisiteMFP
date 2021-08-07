@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visite{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div id="wizard_container">
+        <!-- Leave input above for security protection, read docs for details -->
+        <div id="middle-wizard">
+            <div class="question_title">
+                <h3>Listes des demandes</h3>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Nom_visiteur</th>
+                            <td>{{ visite.nomVisiteur }}</td>
+                        </tr>
+                        <tr>
+                            <th>Prenom_visiteur</th>
+                            <td>{{ visite.prenomVisiteur }}</td>
+                        </tr>
+                        <tr>
+                            <th>Date de naissance</th>
+                            <td>{{ visite.datenaiss ? visite.datenaiss|date('d-m-Y') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Lieu de naissance</th>
+                            <td>{{ visite.lieunaiss }}</td>
+                        </tr>
+                        {% if visite.matricule is not null %}
+                            <tr>
+                                <th>Matricule</th>
+                                <td>{{ visite.matricule }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th>Numero carte d'identité</th>
+                                <td>{{ visite.cin }}</td>
+                            </tr>
+                            <tr>
+                                <th>Scanne de la pièce d'identité</th>
+                                <td><a href="{{ asset('uploads/CNI/' ~ visite.CNIName) }}" target="_blank">Voir le scanne de la CNI </a></td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <th>Objet de la demande </th>
+                            <td>{{ visite.motifDemande.libelle }}</td>
+                        </tr>
+                        <tr>
+                            <th>Demande</th>
+                            <td>{{ visite.demande }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a class="btn" href="{{ path('visite_index') }}">Retour à la liste</a>
+
+                <a class="btn btn-primary" href="{{ path('visite_edit', {'id': visite.id}) }}">Traiter la demande</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Plateforme demandeurs">
+    <meta name="author" content="MFP">
+    <title>{% block title %}Plateforme demandeurs!{% endblock %}</title>
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{{ asset('images/logosn.png') }}" type="image/x-icon">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/own_style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/vendors.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icon_fonts/css/all_icons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset("css/skins/square/grey.css") }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"
+          type="text/css">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <!-- Modernizr -->
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<div id="preloader">
+    <div data-loader="circle-side"></div>
+</div><!-- /Preload -->
+
+<div id="loader_form">
+    <div data-loader="circle-side-2"></div>
+</div><!-- /loader_form -->
+
+<header>
+    <img src="{{ asset('images/logosn.png') }}" alt="Logosn" srcset="">
+    <p>
+        Plateforme de gestion des visites
+    </p>
+</header>
+<!-- /Header -->
+
+<main>
+    {% block body %}{% endblock %}
+</main>
+<!-- /main -->
+<footer class="footer">
+    <img class="img-footer" src="{{ asset('images/footer-flag.png') }}" alt="">
+    <ul>
+        <li class="border-r"><a target="_blank" href="http://www.fonctionpublique.gouv.sn/mentions_legales">Mentions légales</a></li>
+        <li class="border-r"><a target="_blank" href="http://www.fonctionpublique.gouv.sn/cookies">Confidentialités et Cookies</a></li>
+        <li><a target="_blank" href="http://www.fonctionpublique.gouv.sn/autres-contacts/autres-adresses">Contact</a></li>
+    </ul>
+    <ul>
+        <li><a target="_blank" href="http://www.fonctionpublique.gouv.sn/">fonctionpublique.gouv.sn</a></li>
+        <li><a target="_blank" href="http://www.gouv.sn/">gouv.sn</a></li>
+        <li><a target="_blank" href="http://www.presidence.sn/">presidence.sn</a></li>
+        <li><a target="_blank" href="http://www.servicepublic.gouv.sn/">servicepublic.gouv.sn</a></li>
+        <li><a target="_blank" href="http://www.fonctionpublique-actes.gouv.sn/">fonctionpublique-actes.gouv.sn</a></li>
+        <li><a target="_blank" href="https://emploi-fpublique.sec.gouv.sn/login">emploi-fpublique.gouv.sn</a></li>
+    </ul>
+    <p>
+        Ministère de la Fonction publique et du Renouveau du Service public - © {{  '' | date('Y') }}
+    </p>
+</footer>
+<!-- /footer -->
+
+<!-- COMMON SCRIPTS -->
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="{{asset('js/our_js.js')}}"></script>
+<script src="{{asset('js/common_scripts.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    $flash_message = document.getElementById('flash-message');
+    if ($flash_message) {
+        message = $flash_message.getAttribute('data-message');
+        if (message) {
+            Swal.fire(
+                '',
+                "Votre demande est bien reçue, une réponse par e-mail vous sera communiquée dans les plus bref délais.",
+                'success'
+            )
+        }
+    }
+</script>
+{% block javascripts %}{% endblock %}
+    </body>
+</html>

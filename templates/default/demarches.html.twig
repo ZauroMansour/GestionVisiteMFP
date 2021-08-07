@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | Plateforme demandeurs!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="wizard_container">
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="question_title">
+                    <h3>Les démarches</h3>
+                    <p>Choisissez la structure concernée</p>
+                </div>
+                <div class="row">
+                    {% for demarche in demarches %}
+                        <div class="col-lg-3">
+                            <a href="{{ path('visite_new', {demarche: demarche.id}) }}" class="item">
+                                {#                                <input id="{{ structure.id }}" type="radio" name="st" class="required" value="{{ structure.id }}">#}
+                                <label><strong>{{ demarche.libelle }}</strong></label>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- /row-->
+            </div>
+        </div>
+        <!-- /Wizard container -->
+    </div>
+    <!-- /Container -->
+
+{% endblock %}

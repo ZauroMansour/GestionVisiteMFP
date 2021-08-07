@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | Plateforme demandeurs!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="wizard_container">
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="breadcrumbs">
+                    <a href="{{ path('structure') }}">Accueil</a>
+                    <svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                    <span>{{structure.nom}}</span>
+                </div>
+                <div class="question_title">
+                    <h3>Les démarches</h3>
+                    <p>Choisissez le service concerné</p>
+                </div>
+                <div class="row">
+                    {% for service in services %}
+                        <div class="col-lg-3">
+                            <a href="{{ path('visite_new', {service_id: service.id}) }}" class="item">
+                                <label><strong>{{ service.nom }}</strong></label>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- /row-->
+            </div>
+        </div>
+        <!-- /Wizard container -->
+    </div>
+    <!-- /Container -->
+
+{% endblock %}

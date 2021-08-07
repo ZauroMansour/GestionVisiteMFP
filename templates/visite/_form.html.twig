@@ -1,0 +1,80 @@
+{#{{ form_start(form) }}#}
+{#    {{ form_widget(form) }}#}
+{#    <button class="btn">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
+
+
+<div id="wizard_container">
+    {{ form_start(form) }}
+    <!-- Leave input above for security protection, read docs for details -->
+    <div id="middle-wizard">
+        <!-- Last step ============================== -->
+        <div class="submit step" id="end">
+            <div class="question_title">
+                <h3>Demande</h3>
+                {#                        <p>Ei duo homero postea dignissim.</p>#}
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="box_general">
+                        {% if service.agent %}
+                            <div class="form-group">
+                                {{ form_widget(form.matricule, {'attr': {'class': 'required form-control', 'placeholder': 'Matricule'}}) }}
+                            </div>
+                        {% else %}
+                            <div class="form-group">
+                                {{ form_widget(form.cin, {'attr': {'class': 'required form-control', 'placeholder': 'Numéro d\'identité (Derrière la CNI)'}}) }}
+                            </div>
+                        {% endif %}
+                        <div class="form-group">
+                            {{ form_widget(form.prenom_visiteur, {'attr': {'class': 'required form-control', 'placeholder': 'Prénom'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.nom_visiteur, {'attr': {'class': 'required form-control', 'placeholder': 'Nom'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{form_label(form.datenaiss)}}
+                            {{ form_widget(form.datenaiss) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.email, {'attr': {'class': 'required form-control', 'placeholder': 'Email'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.telephone, {'attr': {'class': 'required form-control', 'placeholder': 'Téléphone'}}) }}
+                        </div>
+                        <div class="form-group add_bottom_30">
+                            <div class="styled-select">
+                                {{ form_widget(form.region) }}
+                            </div>
+                        </div>
+                        <div class="form-group add_bottom_30">
+                            <div class="styled-select">
+                                {{ form_widget(form.departement) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.adresse, {'attr': {'class': 'required form-control', 'placeholder': 'Adresse'}}) }}
+                        </div>
+                        <div class="form-group add_bottom_30">
+                            <div class="styled-select">
+                                {{ form_widget(form.motifDemande) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.demande, {'attr': {'class': 'required form-control', 'placeholder': 'Lettre de demande', 'rows': '7'}}) }}
+                        </div>
+                    </div>
+                    <!-- /box_general -->
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /Last step ============================== -->
+    </div>
+
+    <div id="bottom-wizard">
+        <button type="submit" class="submit">Soumettre</button>
+    </div>
+    {{ form_widget(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+</div>

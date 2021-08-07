@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | Plateforme demandeurs!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+{% endblock %}
+
+{% block body %}
+    {% for message in app.session.flashBag.get('success') %}
+        <div id="flash-message" data-message="{{ message }}"></div>
+    {% endfor %}
+    <div class="container">
+        <div id="wizard_container">
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="row justify-content-center my-2">
+                    <p class="alert alert-danger alert-info mb-0">
+                         <strong>Les réponses à vos requêtes seront envoyées par mail</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </p>
+                </div>
+                <div class="question_title">
+                    <h3 class="mt-3">Les démarches</h3>
+                    <p>Rechercher l'objet de votre demande</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 justify-content-center">
+                        <form class="search" autocomplete="off" action="{{ path('visite_new') }}">
+                            <select class="selectpicker" data-live-search="true" name="objet">
+                                <option value=""> Rechercher l'objet de votre demande</option>
+                                {% for objet in objets %}
+                                    <option value="{{ objet.id }}"> {{ objet.libelle ~ ' - ' ~ objet.service.nom }} </option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="submit">Faites votre demande</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="question_title question_title_2">
+                    <p>Ou choisissez la structure concernée</p>
+                </div>
+                <div class="row">
+                    {% for structure in structures %}
+                        <div class="col-lg-3">
+                            <a href="{{ path('service', { id_structure: structure.id }) }}" class="item">
+                                <input type="radio">
+                                <label><strong>{{ structure.nom }}</strong></label>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- /row-->
+            </div>
+             <div class="row justify-content-center mt-5">
+                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#tuto">Comment faire une demande?</button>
+                </div>
+                <br>
+                <div class="modal fade" id="tuto" tabindex="-1" role="dialog" aria-labelledby="tutoLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/esU29T6WPwg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        
+                    </div>
+                </div>
+        </div>
+        <!-- /Wizard container -->
+    </div>
+    <!-- /Container -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+{% endblock %}
