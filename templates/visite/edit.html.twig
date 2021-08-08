@@ -119,9 +119,11 @@
             <div id="bottom-wizard">
                 <button type="submit" class="submit" name="submitAction" value="valider" >Valider la demande</button>
             </div>
-            <div id="bottom-rejet">
+        <!--
+           <div id="bottom-rejet">
                 <button class="rejet" align = 'left' name="rejetAction" <a href="{{ path('visite_rejet', {'id': visite.id}) }}" >Rejeter la demande</a></button>
-            </div>
+            </div> 
+        -->
             <div style="display: none;">
                 {{ form_widget(form.region) }}
                 {{ form_widget(form.departement) }}

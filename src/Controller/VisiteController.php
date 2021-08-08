@@ -149,7 +149,9 @@ class VisiteController extends AbstractController
                 ->get('session')->getFlashBag()
                 ->add('resetpwd', "Vous devez reinitialiser votre mot de passe!");
             return $this->redirectToRoute('reset_password');
+
         }
+        
         return $this->render('visite/show.html.twig', [
             'visite' => $visite,
         ]);
@@ -207,6 +209,7 @@ class VisiteController extends AbstractController
              $dompdf->stream($fichier,[
                  'Attachment' => True
              ]);
+
             // Sending mail ...
             $message = (new \Swift_Message('Fonction Publique - Gestion des visites'))
                 ->setFrom('nepasrepondre@fonctionpublique.gouv.sn')
@@ -221,12 +224,17 @@ class VisiteController extends AbstractController
             ;
             $mailer->send($message);
            return $this->redirectToRoute('visite_index');
-        }
-        return $this->render('visite/edit.html.twig', [
-            'visite' => $visite,
-            'service' => $service,
-            'form' => $form->createView(),
-        ]);
+        
+        $this
+             ->get('session')->getFlashBag()
+             ->add('success', "La demande a été traitée!");
+    }
+    return $this->render('visite/edit.html.twig', [
+        'visite' => $visite,
+        'service' => $service,
+        'form' => $form->createView(),
+    ]);
+    return $this->redirectToRoute('visite_index');
     }
 
     /**
@@ -235,6 +243,17 @@ class VisiteController extends AbstractController
     public function rejet(Request $request, Visite $visite, \Swift_Mailer $mailer): Response
     {
         $this->getDoctrine()->getManager()->flush();
+
+            // cas oú la demande est rejetée
+            $entityManager = $this->getDoctrine()->getManager();
+            $visite->setReponse('Demande rejetée');
+            $entityManager->persist($visite);
+            $entityManager->flush();
+
+            $this
+                ->get('session')->getFlashBag()
+                ->add('success', "La demande a été rejetée!");
+            
         
             // Sending mail ...
             $message = (new \Swift_Message('Fonction Publique - Gestion des visites'))
