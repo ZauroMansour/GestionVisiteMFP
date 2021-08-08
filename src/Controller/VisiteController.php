@@ -208,18 +208,18 @@ class VisiteController extends AbstractController
                  'Attachment' => True
              ]);
             // Sending mail ...
-            // $message = (new \Swift_Message('Fonction Publique - Gestion des visites'))
-            //     ->setFrom('nepasrepondre@fonctionpublique.gouv.sn')
-            //     ->setTo($visite->getEmail())
-            //     ->setBody(
-            //         $this->renderView(
-            //             'emails/reponse.html.twig',
-            //             ['visite' => $visite]
-            //         ),
-            //         'text/html'
-            //     )
-            // ;
-            // $mailer->send($message);
+            $message = (new \Swift_Message('Fonction Publique - Gestion des visites'))
+                ->setFrom('nepasrepondre@fonctionpublique.gouv.sn')
+                ->setTo($visite->getEmail())
+                ->setBody(
+                    $this->renderView(
+                        'emails/reponse.html.twig',
+                        ['visite' => $visite]
+                    ),
+                    'text/html'
+                )
+            ;
+            $mailer->send($message);
            return $this->redirectToRoute('visite_index');
         }
         return $this->render('visite/edit.html.twig', [
@@ -234,6 +234,8 @@ class VisiteController extends AbstractController
      */
     public function rejet(Request $request, Visite $visite, \Swift_Mailer $mailer): Response
     {
+        $this->getDoctrine()->getManager()->flush();
+        
             // Sending mail ...
             $message = (new \Swift_Message('Fonction Publique - Gestion des visites'))
                 ->setFrom('nepasrepondre@fonctionpublique.gouv.sn')

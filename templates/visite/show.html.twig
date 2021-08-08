@@ -56,6 +56,8 @@
                 </table>
 
                 <a class="btn" href="{{ path('visite_index') }}">Retour à la liste</a>
+                
+                <a class="btn btn-primary" href="{{ path('visite_rejet', {'id': visite.id}) }}">Rejeter la demande</a>
 
                 <a class="btn btn-primary" href="{{ path('visite_edit', {'id': visite.id}) }}">Traiter la demande</a>
 
