@@ -151,7 +151,7 @@ class Visite
 
     public function setNomVisiteur(string $nom_visiteur): self
     {
-        $this->nom_visiteur = $nom_visiteur;
+        $this->nom_visiteur = strtoupper($nom_visiteur);
 
         return $this;
     }
@@ -163,7 +163,7 @@ class Visite
 
     public function setPrenomVisiteur(string $prenom_visiteur): self
     {
-        $this->prenom_visiteur = $prenom_visiteur;
+        $this->prenom_visiteur = strtoupper($prenom_visiteur);
 
         return $this;
     }
@@ -395,7 +395,7 @@ class Visite
      */ 
     public function setLieunaiss($lieunaiss)
     {
-        $this->lieunaiss = $lieunaiss;
+        $this->lieunaiss = strtoupper($lieunaiss);
 
         return $this;
     }

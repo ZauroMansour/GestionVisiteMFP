@@ -174,7 +174,15 @@ class VisiteController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) 
         {
+            
             $this->getDoctrine()->getManager()->flush();
+            // cas oú la demande est validée
+            $entityManager = $this->getDoctrine()->getManager();
+            $visite->setReponse('Demande validée');
+            $entityManager->persist($visite);
+            $entityManager->flush();
+
+
             // on utile dompdf pour générer l'attestion apres validation de la demande
 
             //on definie les options du pdf

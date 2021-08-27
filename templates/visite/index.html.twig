@@ -52,8 +52,10 @@
                             <td>
                              {% if visite.reponse is null %}
                                 <a href="{{ path('visite_edit', {'id': visite.id}) }}" class="demandenok">Traiter la demande </a>
-                            {% else %}
-                                 <a href="{{ path('visite_edit', {'id': visite.id}) }}" class="demandeok">Demande déja traitée </a>
+                            {% elseif visite.reponse == 'Demande rejetée' %}
+                                    <a href="{{ path('visite_edit', {'id': visite.id}) }}" class="demandeokR">Demande rejetée </a>   
+                                    {% else %}
+                                 <a href="{{ path('visite_edit', {'id': visite.id}) }}" class="demandeok">Demande validée</a>
                             {% endif %}     
                             </td>
                         </tr>

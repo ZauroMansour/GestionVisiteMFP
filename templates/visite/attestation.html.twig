@@ -1,23 +1,21 @@
 {% extends "base-pdf.html.twig" %}
-{% block title %} Attestation de non appartenance de {{visite.prenomVisiteur}} {{visite.nomVisiteur}} {% endblock %}
+{% block title %} Attestation de non appartenance de {{visite.prenomVisiteur |upper }} {{visite.nomVisiteur |upper }} {% endblock %}
 {% block body %}
 <div>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><strong><span style="font-family:'Bookman Old Style';">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong>
     <img src="https://myfiles.space/user_files/93652_5ee65ba31f61b45c/1628017986_attestation-dnafp/1628017986_attestation-dnafp.001.png" width="55" height="35" alt=""></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><strong><span style="font-family:Tahoma;">REPUBLIQUE DU SENEGAL
     </span></strong><strong><span style="font-family:Tahoma;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </span></strong><strong><span style="font-family:Tahoma;">MFPRSP/DGFP/CE</span></strong></p>
+    </span>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:10pt;"><em><span style="font-family:'Bookman Old Style';">
     &nbsp;&nbsp;&nbsp;&nbsp;</span></em><em><span style="font-family:'Bookman Old Style';">
     Un Peuple &ndash;  But &ndash; Une Foi</span></em> <span style="font-family:Tahoma;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N&deg;</span><strong><span style="font-family:'Bookman Old Style'; font-size:11pt;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N&deg;</span><strong><span style="font-family:'Bookman Old Style'; font-size:11pt;">
     {% set datenow = date('now' | date ('d-m-Y')) %}
-    {{ datenow | date('m') }}{{ datenow | date('Y')}} DNAFP 000{{ visite.id }}</span></strong><em><span style="font-family:'Bookman Old Style'; font-size:11pt;">
+    {{ datenow | date('m') }}{{ datenow | date('Y')}} DNAFP 000{{ visite.id }}.  </strong><strong><span style="font-family:Tahoma;">MFPRSP/DGFP/CE</span></strong></span></strong><em><span style="font-family:'Bookman Old Style'; font-size:11pt;">
     </span></em></p>
-    
     <p style="margin-top:0pt; margin-bottom:8pt; font-size:12pt;"><span style="font-family:'Bookman Old Style';">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'Bookman Old Style';">
     **************</span></p>
@@ -31,36 +29,34 @@
     et du Renouveau du service public</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; line-height:150%; font-size:12pt;"><span style="font-family:'Bookman Old Style';">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'Bookman Old Style';">**************&nbsp;</span></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:15pt;"><span style="font-family:'Bookman Old Style'; font-size:12pt;">
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:15pt;"><span style="font-family:'Bookman Old Style'; font-size:12pt;">
-   </span><strong><span style="font-family:'Bookman Old Style';">&nbsp;&nbsp;&nbsp;&nbsp;La Direction g&eacute;n&eacute;rale de la Fonction publique</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Edwardian Script ITC';">&nbsp;</span></p>
+   </span><strong><span style="Edwardian Script ITC;">Direction g&eacute;n&eacute;rale de la Fonction publique</span></strong></p>
     <p style="margin-top:0pt; margin-left:35.4pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:7.05pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:49.65pt; margin-bottom:0pt; text-indent:-49.65pt; font-size:22.5pt;"><strong>
     <span style="font-family:'Times New Roman';">&nbsp;</span></strong></p>
     <p style="margin-top:0pt; margin-left:19.1pt; margin-bottom:0pt; text-align:center; border:5.25pt solid #000000; 
     padding:1pt 4pt; font-size:26pt; background-color:#b5b5b5;"><strong><span style="font-family:'Bookman Old Style';">ATTESTATION</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:108%; font-size:12pt;"><span style="font-family:'Bookman Old Style'; text-align:justify;">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style'; text-align:justify; ">
     Le Directeur g&eacute;n&eacute;ral de la Fonction publique, soussign&eacute;, atteste que</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
-    Monsieur/Madame&nbsp;</span><span style="font-family:'Bookman Old Style';"></span><strong><span style="font-family:'Bookman Old Style';">
-    {{visite.prenomVisiteur}} {{visite.nomVisiteur}}</span></strong><span style="font-family:'Bookman Old Style';">,
+    <p style="margin-top:0pt; margin-bottom:8pt;  text-align:justify; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
+    Monsieur/Madame&nbsp;</span><span style="font-family:'Bookman Old Style'; text-align:justify;"></span><strong><span style="font-family:'Bookman Old Style';">
+    {{visite.prenomVisiteur |upper }} {{visite.nomVisiteur |upper }}</span></strong><span style="font-family:'Bookman Old Style';">,
      n&eacute;(e) le&nbsp;
      </span><strong><span style="font-family:'Bookman Old Style';">{{visite.datenaiss | date('d-m-Y') }}</span></strong><span style="font-family:'Bookman Old Style';">
-    &nbsp;&agrave;&nbsp;</span><strong><span style="font-family:'Bookman Old Style';">{{visite.lieunaiss }}</span></strong>
-    <span style="font-family:'Bookman Old Style';">, est inconnu(e) au fichier de la Fonction publique.</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
-    En foi de quoi, la pr&eacute;sente attestation lui est d&eacute;livr&eacute;e pour servir et valoir ce que de droit.</span></p>
+    &nbsp;&agrave;&nbsp;</span><strong><span style="font-family:'Bookman Old Style';">{{visite.lieunaiss |upper}},</span></strong>
+    <span style="font-family:'Bookman Old Style'; text-align:justify;"> est inconnu(e) au fichier de la Fonction publique.</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
+     En foi de quoi, la pr&eacute;sente attestation lui est d&eacute;livr&eacute;e pour servir et valoir ce que de droit.</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:293.2pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong>
-    <span style="font-family:Tahoma;">P. Le Directeur g&eacute;n&eacute;ral</span></strong></p>
+    <span style="font-family:Tahoma;">P. Le Directeur g&eacute;n&eacute;ral, po</span></strong></p>
     <p style="margin-top:0pt; margin-left:293.2pt; margin-bottom:0pt; text-align:center; font-size:13pt;">
-    <span style="font-family:Tahoma;">P.O. Le charg&eacute; d&rsquo;Etudes</span></p>
+    <span style="font-family:Tahoma;">Le charg&eacute; d&rsquo;Etudes</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
@@ -73,11 +69,17 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><em>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><em>
     <span style="font-family:'Segoe Print'; background-color:#ffffff;">Mohamadou Moustapha NIANG</span></em></p>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
+     <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
+      <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
+      <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
+      <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:10pt;"><span style="font-family:'Times New Roman';">NB </span>
     <span style="font-family:'Times New Roman';">&nbsp;</span><span style="font-family:'Times New Roman';">:
      l&rsquo;attestation d&eacute;livr&eacute;e est valable pour une dur&eacute;e de neuf (9) mois.</span></p>
