@@ -29,6 +29,10 @@
                             <th>Lieu de naissance</th>
                             <td>{{ visite.lieunaiss }}</td>
                         </tr>
+                        <tr>
+                            <th>Profession</th>
+                            <td>{{ visite.Profession }}</td>
+                        </tr>
                         {% if visite.matricule is not null %}
                             <tr>
                                 <th>Matricule</th>
@@ -38,7 +42,7 @@
                             <tr>
                                 <th>Numero carte d'identité</th>
                                 <td>{{ visite.cin }}</td>
-                            </tr>
+                            </tr>    
                             <tr>
                                 <th>Scanne de la pièce d'identité</th>
                                 <td><a href="{{ asset('uploads/CNI/' ~ visite.CNIName) }}" target="_blank">Voir le scanne de la CNI </a></td>

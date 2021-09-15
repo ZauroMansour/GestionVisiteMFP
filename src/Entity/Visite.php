@@ -49,6 +49,11 @@ class Visite
     private $date_visite;
 
     /**
+     * @ORM\Column(type="date")
+     */
+    private $date_demande;
+
+    /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Merci de rediger votre demande")
      */
@@ -188,6 +193,18 @@ class Visite
     public function setDateVisite(\DateTimeInterface $date_visite): self
     {
         $this->date_visite = $date_visite;
+
+        return $this;
+    }
+
+    public function getDateDemande(): ?\DateTimeInterface
+    {
+        return $this->date_demande;
+    }
+
+    public function setDateDemande(\DateTimeInterface $date_demande): self
+    {
+        $this->date_demande = $date_demande;
 
         return $this;
     }

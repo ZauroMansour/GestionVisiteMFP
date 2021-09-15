@@ -37,12 +37,12 @@ class VisiteType extends AbstractType
             ->add('nom_visiteur', TextType::class, [
                 'empty_data' => '',
                 'label' => 'Votre nom:',
-               // "disabled" => $edit
+                "disabled" => $edit
             ])
             ->add('prenom_visiteur', TextType::class, [
                 'empty_data' => '',
                 'label' => 'Votre prenom:',
-                //"disabled" => $edit
+                "disabled" => $edit
             ])
             ->add('adresse', TextType::class, [
                 'empty_data' => '',
@@ -60,7 +60,7 @@ class VisiteType extends AbstractType
                 'empty_data' => null,
                 'label' => 'Lieu de Naissance:',
                 'required' => true,
-              //  "disabled" => $edit
+                //"disabled" => $edit
             ])
             ->add('matricule', TextType::class, [
                 'empty_data' => null,
@@ -85,7 +85,7 @@ class VisiteType extends AbstractType
             ->add('CNIname', FileType::class, [
                 'label' => 'Scanne de la CIN',
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
                 'constraints' => [
                     new File([
                         'maxSize' => '4096k',

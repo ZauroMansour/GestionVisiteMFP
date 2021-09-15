@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Visite;
 use App\Form\VisiteType;
 use App\Repository\MotifDemandeRepository;
@@ -86,6 +87,7 @@ class VisiteController extends AbstractController
             $visite->setMatricule(null);
         }
         $visite->setDateVisite(new DateTime());
+        $visite->setDateDemande(new DateTime());
         $form = $this->createForm(VisiteType::class, $visite, ['service_id' => $service_id, 'edit' => false]);
         $form->handleRequest($request);
 
@@ -171,6 +173,7 @@ class VisiteController extends AbstractController
         $service = $visite->getMotifDemande()->getService();
         $form = $this->createForm(VisiteType::class, $visite, ['service_id' => $service->getId(), 'edit' => true]);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) 
         {
@@ -204,6 +207,7 @@ class VisiteController extends AbstractController
              //on génére le html
              $html = $this->renderView('visite/attestation.html.twig', [
                 'visite' => $visite,
+                'user' => $user,
                 ]);
              $dompdf->loadHtml($html);
              $dompdf->setPaper('A4', 'portrait');
@@ -240,6 +244,7 @@ class VisiteController extends AbstractController
     return $this->render('visite/edit.html.twig', [
         'visite' => $visite,
         'service' => $service,
+        'user' => $user,
         'form' => $form->createView(),
     ]);
     return $this->redirectToRoute('visite_index');
