@@ -46,12 +46,13 @@ class VisiteType extends AbstractType
             ])
             ->add('adresse', TextType::class, [
                 'empty_data' => '',
+                'required' => false,
                 'label' => 'Votre adresse:',
                 "disabled" => $edit
             ])
             ->add('datenaiss', DateType::class, array(
                 'label' => 'Date de naissance:',
-                'required' => true,
+                'required' => false,
                 'widget' => 'single_text',
                 'empty_data' => date("now"),
                // "disabled" => $edit
@@ -76,10 +77,11 @@ class VisiteType extends AbstractType
             ->add('cin', TextType::class, [
                 'empty_data' => '',
                 'label' => 'Numéro d\'identité nationale:',
-                'constraints'   =>  new Regex([
-                    'pattern' => "/^(^(^(\d{1}([a-z]|\d{1})\d{11})$|\d{14}$)|[a-z]\d{8})$/i",
-                    'message'   =>  "Le numéro saisi n'est pas valide, vérifiez qu'il s'agit bien du numero court derriére la carte"
-                ]),
+                'required' => true,
+                // 'constraints'   =>  new Regex([
+                //     'pattern' => "/^(^(^(\d{1}([a-z]|\d{1})\d{11})$|\d{14}$)|[a-z]\d{8})$/i",
+                //     'message'   =>  "Le numéro saisi n'est pas valide, vérifiez qu'il s'agit bien du numero court derriére la carte"
+                // ]),
                // "disabled" => $edit
             ])
             ->add('CNIname', FileType::class, [
@@ -103,6 +105,7 @@ class VisiteType extends AbstractType
             ->add('demande', TextareaType::class, [
                 'empty_data' => '',
                 'label' => 'Decrivez votre demande:',
+                'required' => false,
                 "disabled" => $edit
             ])
             ->add('telephone', TextType::class, [
@@ -133,7 +136,7 @@ class VisiteType extends AbstractType
                 'label' => 'Région de résidence:',
                 'class' => Region::class,
                 'choice_label' => 'libelle',
-                'required' => true,
+                'required' => false,
                 'placeholder' => 'Choisir votre région de résidence',
             ])
             ->add('reponse', TextareaType::class, [

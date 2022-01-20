@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit AgentEtat{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="wizard_container">
+            {{ form_start(form) }}
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="submit step" id="end">
+                    <div class="question_title">
+                    {# <br>
+                    <marquee SCROLLAMOUNT="8" width="350" style="color:#FF6666"> {{ agent_etat.prenom }} {{ agent_etat.nom }} matricule de solde {{ agent_etat.matricule }} pour une nouvelle mise à jour de vos données personnelles</marquee> #}
+                    </div>
+                    <div class="row justify-content-center" >
+                        <div class="col-md-4" >
+                            <div class="box_general box_general_form_new bg-light border border-success" >
+                                <div class="text-success" align= "center">Etat civil et identification:</div>
+                                <br>
+                                <div class="form-group" >
+                                    {{ form_label(form.prenom) }}
+                                    {{ form_errors(form.prenom) }}
+                                    {{ form_widget(form.prenom, {'attr': {'class': 'required form-control', 'placeholder': 'Prénom'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.nom) }}
+                                    {{ form_errors(form.nom) }}
+                                    {{ form_widget(form.nom, {'attr': {'class': 'required form-control', 'placeholder': 'Nom'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.datenaiss) }}
+                                    {{ form_errors(form.datenaiss) }}
+                                    {{ form_widget(form.datenaiss) }}
+                                </div>
+                                <div class="form-group">
+                                        {{ form_label(form.matricule) }}
+                                        {{ form_errors(form.matricule) }}
+                                        {{ form_widget(form.matricule, {'attr': {'class': 'required form-control', 'placeholder': 'Matricule'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.cni) }}
+                                    {{ form_errors(form.cni) }}
+                                    {{ form_widget(form.cni, {'attr': {'class': 'required form-control', 'placeholder': 'Numéro d\'identité (Derrière la CNI)'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" >
+                            <div class="box_general box_general_form_new bg-light border border-warning">
+                            <div class="text-warning" align= "center">Coordonnées:</div>
+                                <br>
+                                <div class="form-group">
+                                    {{ form_label(form.email) }}
+                                    {{ form_errors(form.email) }}
+                                    {{ form_widget(form.email, {'attr': {'class': 'required form-control', 'placeholder': 'Email'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.telephone) }}
+                                    {{ form_errors(form.telephone) }}
+                                    {{ form_widget(form.telephone, {'attr': {'class': 'required form-control', 'placeholder': 'Téléphone'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.adresse) }}
+                                    {{ form_errors(form.adresse) }}
+                                    {{ form_widget(form.adresse, {'attr': {'class': 'required form-control', 'placeholder': 'Adresse', 'rows': '9'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" >
+                            <div class="box_general box_general_form_new bg-light border border-danger">   
+                            <div class="text-danger" align= "center">Demande de réclamation:</div>
+                                <br>
+                                <div class="form-group" >
+                                    {{ form_label(form.idAgent) }}`
+                                    {{ form_errors(form.idAgent) }}
+                                    {{ form_widget(form.idAgent, {'attr': {'class': 'required form-control', 'placeholder': 'Id Agent'}}) }}
+                                </div>
+                                <div class="form-group" >
+                                    {{ form_label(form.corps) }}`
+                                    {{ form_errors(form.corps) }}
+                                    {{ form_widget(form.corps, {'attr': {'class': 'required form-control', 'placeholder': 'Corps Agent'}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.demande) }}
+                                    {{ form_errors(form.demande) }}
+                                    {{ form_widget(form.demande, {'attr': {'class': 'required form-control', 'placeholder': "Demande de l'agent"}}) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.reponse) }}
+                                    {{ form_errors(form.reponse) }}
+                                    {{ form_widget(form.reponse, {'attr': {'class': 'required form-control', 'placeholder': 'reponse de la demande', 'rows': '4s'}}) }}
+                                </div>
+                                
+                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div align = "center">
+                <button type="submit" class="submit" name="submitAction" value="valider" >Valider la demande</button>
+                <a class="btn btn-dark" href="{{ path('agent_etat_index') }}"> Retourer à la liste</a>
+            </div>
+            <br>
+            
+
+            {# <div style="display: none;">
+                {{ form_widget(form.region) }}
+                {{ form_widget(form.departement) }}
+                {{ form_widget(form.adresse) }}
+                {{ form_widget(form.telephone) }}
+                {{ form_widget(form.genre) }}
+            </div> #}
+            {{ form_widget(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+
+{% endblock %}

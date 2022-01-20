@@ -1,0 +1,71 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+{#{{ form_start(form) }}#}
+{#    {{ form_widget(form) }}#}
+{#    <button class="btn">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
+
+
+<div id="wizard_container">
+    {{ form_start(form) }}
+    <!-- Leave input above for security protection, read docs for details -->
+    <div id="middle-wizard">
+        <!-- Last step ============================== -->
+        <div class="submit step" id="end">
+            <div class="question_title">
+                <h3 align= 'center'>Demande de formation effectuée par l'agent {{ formation.matricule }}</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="box_general">
+                        <div class="form-group">
+                            {{ form_label(form.matricule) }}
+                            {{ form_widget(form.matricule, {'attr': {'class': 'required form-control', 'label': 'Matricule'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.prenom) }}
+                            {{ form_widget(form.prenom, {'attr': {'class': 'required form-control', 'placeholder': 'Prénom'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.nom) }}
+                            {{ form_widget(form.nom, {'attr': {'class': 'required form-control', 'placeholder': 'Nom'}}) }}
+                        </div>
+                       <div class="form-group">
+                            {{ form_label(form.telephone) }}
+                            {{ form_widget(form.telephone, {'attr': {'class': 'required form-control', 'placeholder': 'Téléphone'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'required form-control', 'placeholder': 'Email'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.formation) }}
+                            {{ form_widget(form.formation, {'attr': {'class': 'required form-control', 'placeholder': 'Fonction'}}) }}
+                        </div>
+                        <div class="form-group add_bottom_30">
+                                {{ form_label(form.ministere) }}
+                                {{ form_widget(form.ministere) }}
+                        </div>
+                        <div class="form-group add_bottom_30">
+                                {{ form_label(form.thematique) }}
+                                {{ form_widget(form.thematique) }}
+                        </div>
+                    </div>
+                    <!-- /box_general -->
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /Last step ============================== -->
+    </div>
+
+    <div id="bottom-wizard">
+        <button type="submit" class="submit">Soumettre</button>
+    </div>
+    {{ form_widget(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+</div>
+

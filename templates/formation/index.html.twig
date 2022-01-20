@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation index{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+{# <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"> #}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div id="wizard_container">
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="question_title">
+                    <h3>Liste des demandes de Formation</h3>
+                </div>
+            <div class="row">
+                <div id="middle-wizard">
+                    <table class=" display responsive" id="list-demandes">
+                        <thead>
+                                <tr>
+                                    <th>Matricule</th>
+                                    <th>Prenom</th>
+                                    <th>Nom</th>
+                                    <th>Telephone</th>
+                                    <th>Email</th>
+                                    <th>Formation</th>
+                                    <th>Ministere</th>
+                                    <th>Thematique</th>
+                                    <th>Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            {% for formation in formations %}
+                                <tr>
+                                    <td>{{ formation.matricule }}</td>
+                                    <td>{{ formation.prenom }}</td>
+                                    <td>{{ formation.nom }}</td>
+                                    <td>{{ formation.telephone }}</td>
+                                    <td>{{ formation.email }}</td>
+                                    <td>{{ formation.formation }}</td> 
+                                    <td>{{ formation.ministere.nom}}</td> 
+                                    <td>
+                                    {% if formation.thematique is not empty %}
+                                            {% for them in formation.thematique %}
+                                                <br>
+                                                    {{ them.libelle }}
+                                                </br> 
+                                            {% endfor %}
+                                        {% else %}
+                                               La formation choisie est desactivée
+                                    {% endif %}
+                                    </td>  
+                                    <td> 
+                                        <a href="{{ path('formation_edit', {'id': formation.id}) }}">Editer</a>
+                                        {# <a href="{{ path('formation_show', {'id': formation.id}) }}">Visualiser</a> #}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="8">no records found</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <br>
+                    <a href="{{ path('formation_new') }}">Create une nouvelle demande de formation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> 
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script> 
+     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> 
+     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> 
+     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script> 
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script> 
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script> 
+
+    <script>
+        $(document).ready( function () {
+            $('#list-demandes').DataTable(
+                {
+                    dom: 'Bfrtip',
+                    lengthMenu: [
+                                    [ 10, 25, 50, -1 ],
+                                    [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+                                ],
+    
+                    buttons:    ['pageLength', 'excel', 'pdf', 'print']
+                } 
+            );
+
+        });
+    </script>
+
+{% endblock %}

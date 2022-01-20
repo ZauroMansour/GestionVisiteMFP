@@ -63,6 +63,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/demarches.html.twig', [
             'demarches' => $demarches,
+            'Idservice' => $id_service,
         ]);
     }
 }
