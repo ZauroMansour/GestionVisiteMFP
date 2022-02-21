@@ -1,67 +1,49 @@
 {% extends "base-pdf.html.twig" %}
-{% block title %} Attestation de non appartenance de {{visite.prenomVisiteur}} {{visite.nomVisiteur}} {% endblock %}
+{% block title %} Attestation de non appartenance de {{visite.prenomVisiteur |upper }} {{visite.nomVisiteur |upper }} {% endblock %}
 {% block body %}
 <div>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><strong><span style="font-family:'Bookman Old Style';">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong>
-    <img src="https://myfiles.space/user_files/93652_5ee65ba31f61b45c/1628017986_attestation-dnafp/1628017986_attestation-dnafp.001.png" width="55" height="35" alt=""></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><strong><span style="font-family:Tahoma;">REPUBLIQUE DU SENEGAL
-    </span></strong><strong><span style="font-family:Tahoma;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </span></strong><strong><span style="font-family:Tahoma;">MFPRSP/DGFP/CE</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:10pt;"><em><span style="font-family:'Bookman Old Style';">
-    &nbsp;&nbsp;&nbsp;&nbsp;</span></em><em><span style="font-family:'Bookman Old Style';">
-    Un Peuple &ndash;  But &ndash; Une Foi</span></em> <span style="font-family:Tahoma;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N&deg;</span><strong><span style="font-family:'Bookman Old Style'; font-size:11pt;">
-    {% set datenow = date('now' | date ('d-m-Y')) %}
-    {{ datenow | date('m') }}{{ datenow | date('Y')}} DNAFP 000{{ visite.id }}</span></strong><em><span style="font-family:'Bookman Old Style'; font-size:11pt;">
-    </span></em></p>
-    
-    <p style="margin-top:0pt; margin-bottom:8pt; font-size:12pt;"><span style="font-family:'Bookman Old Style';">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'Bookman Old Style';">
-    **************</span></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><strong><span style="font-family:Tahoma;">
-    Minist&egrave;re de la Fonction publique&nbsp;</span></strong><span style="width:8.58pt; display:inline-block;">&nbsp;
-    </span><span style="width:35.4pt; display:inline-block;">&nbsp;</span><em><span style="font-family:Tahoma;">
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dakar le</span></em><span style="font-family:Tahoma;">&nbsp;</span><span style="font-family:'Times New Roman'; 
-    font-size:11pt;">&nbsp;</span><span style="font-family:Tahoma;">{{ 'now' | date ('d-m-Y') }}</span></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong>
+    <img width="41" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAAjCAYAAAAwnJLLAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABQ0lEQVRYhe2YMUvDQBiGn+QiRgpKEMSf0KEIjg7FoZu7rjop9Af4D1yca5DSpbuLi4PQX6AgOLkoFMRFRBCyaO/ikIKBKi73HZ7cs+UC35snH7n7CPxjIo42ja1iuqus1Hlqja3Uia1U+aMEOV8Jcr4S5HwlyPlKkPMVcbmdy59H17tXa2Ptt4jL9doxc7nmo+Zx/Vyick0zk41PRKsDKwtggPRUc7gecXZf8vAGKpJOdvTNbaxWJsc3lRjA1bZ8tBO5bH527fZFPldUbmJA5ZqLcTlzb29kyAZaMl5ObndkWBpo0gTSBJJaUqqqtXcDjb7msZB5BrENZdiJGXa+rosJLParThUHdn5H/IazQ7wxfY1ryw62ySlOJ5T9VsT5lrtI8XOuzkk7JnbXOLedcykGYXD2lyDnK0HOV4KcrwQ5X/kE3v8/J5ddO/EAAAAASUVORK5CYII=" alt="image"></span></p>
+    <h2 style='margin-top:5.3pt;margin-right:0cm;margin-bottom:0cm;margin-left:5.0pt;font-size:16px;font-family:"Times New Roman",serif;'>REPUBLIQUE DU SENEGAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MFPRSP/DGFP/CE</h2>
+    <p style='margin:0cm;font-size:15px;font-family:"Times New Roman",serif;margin-top:.45pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:17.5pt;'><em><span style="font-size:13px;">Un Peuple &ndash; But &ndash; Une Foi &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></em>
+    <span style="font-size:13px;">N&deg;&nbsp;</span><strong> {% set datenow = date('now' | date ('d-m-Y')) %}
+    {{ datenow | date('m') }}{{ datenow | date('Y')}} DNAFP 000{{ visite.id }}</strong></p>
+    <p style='margin:0cm;font-size:15px;font-family:"Times New Roman",serif;margin-top:.45pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:41.0pt;'><span style="font-size:16px;">**************</span></p>
+    <p style='margin:0cm;font-size:15px;font-family:"Times New Roman",serif;margin-top:8.45pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:5.0pt;'><strong><span style="font-size:16px;">Minist&egrave;re de la Fonction publique &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></strong><em><span style="font-size:16px;">Dakar le&nbsp;</span></em><span style="font-size:16px;">{{ 'now' | date ('d-m-Y') }}</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><strong><span style="font-family:Tahoma;">
     et du Renouveau du service public</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; line-height:150%; font-size:12pt;"><span style="font-family:'Bookman Old Style';">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'Bookman Old Style';">**************&nbsp;</span></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:15pt;"><span style="font-family:'Bookman Old Style'; font-size:12pt;">
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:15pt;"><span style="font-family:'Bookman Old Style'; font-size:12pt;">
-   </span><strong><span style="font-family:'Bookman Old Style';">&nbsp;&nbsp;&nbsp;&nbsp;La Direction g&eacute;n&eacute;rale de la Fonction publique</span></strong></p>
+    <p style='margin-top:1.25pt;margin-right:0cm;margin-bottom:0cm;margin-left:20.0pt;font-size:20px;font-family:"Times New Roman",serif;font-weight:bold;'><span style='font-size:21px;font-family:"Apple Chancery";'>&nbsp;</span></p>
+    <p style='margin-top:1.25pt;margin-right:0cm;margin-bottom:0cm;margin-left:20.0pt;font-size:20px;font-family:"Times New Roman",serif;font-weight:bold;'><span style='font-size:24px;font-family:"Apple Chancery";'>La Direction g&eacute;n&eacute;rale de la Fonction publique</span></p>
+    <p style='margin:0cm;font-size:12px;font-family:"Times New Roman",serif;font-weight:bold;'><span style="font-size:13px;">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:35.4pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:7.05pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:49.65pt; margin-bottom:0pt; text-indent:-49.65pt; font-size:22.5pt;"><strong>
     <span style="font-family:'Times New Roman';">&nbsp;</span></strong></p>
     <p style="margin-top:0pt; margin-left:19.1pt; margin-bottom:0pt; text-align:center; border:5.25pt solid #000000; 
     padding:1pt 4pt; font-size:26pt; background-color:#b5b5b5;"><strong><span style="font-family:'Bookman Old Style';">ATTESTATION</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:'Bookman Old Style';">&nbsp;</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:108%; font-size:12pt;"><span style="font-family:'Bookman Old Style'; text-align:justify;">&nbsp;</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style'; text-align:justify; ">
     Le Directeur g&eacute;n&eacute;ral de la Fonction publique, soussign&eacute;, atteste que</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
-    Monsieur/Madame&nbsp;</span><span style="font-family:'Bookman Old Style';"></span><strong><span style="font-family:'Bookman Old Style';">
-    {{visite.prenomVisiteur}} {{visite.nomVisiteur}}</span></strong><span style="font-family:'Bookman Old Style';">,
+    <p style="margin-top:0pt; margin-bottom:8pt;  text-align:justify; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
+    Monsieur/Madame&nbsp;</span><span style="font-family:'Bookman Old Style'; text-align:justify;"></span><strong><span style="font-family:'Bookman Old Style';">
+    {{visite.prenomVisiteur |upper }} {{visite.nomVisiteur |upper }}</span></strong><span style="font-family:'Bookman Old Style';">,
      n&eacute;(e) le&nbsp;
      </span><strong><span style="font-family:'Bookman Old Style';">{{visite.datenaiss | date('d-m-Y') }}</span></strong><span style="font-family:'Bookman Old Style';">
-    &nbsp;&agrave;&nbsp;</span><strong><span style="font-family:'Bookman Old Style';">{{visite.lieunaiss }}</span></strong>
-    <span style="font-family:'Bookman Old Style';">, est inconnu(e) au fichier de la Fonction publique.</span></p>
-    <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
-    En foi de quoi, la pr&eacute;sente attestation lui est d&eacute;livr&eacute;e pour servir et valoir ce que de droit.</span></p>
+    &nbsp;&agrave;&nbsp;</span><strong><span style="font-family:'Bookman Old Style';">{{visite.lieunaiss |upper}},</span></strong>
+    <span style="font-family:'Bookman Old Style'; text-align:justify;"> est inconnu(e) au fichier de la Fonction publique.</span></p>
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:108%; font-size:15pt;"><span style="font-family:'Bookman Old Style';">
+     En foi de quoi, la pr&eacute;sente attestation lui est d&eacute;livr&eacute;e pour servir et valoir ce que de droit.</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-left:293.2pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong>
-    <span style="font-family:Tahoma;">P. Le Directeur g&eacute;n&eacute;ral</span></strong></p>
+    <span style="font-family:Tahoma;">P. Le Directeur g&eacute;n&eacute;ral, po</span></strong></p>
     <p style="margin-top:0pt; margin-left:293.2pt; margin-bottom:0pt; text-align:center; font-size:13pt;">
-    <span style="font-family:Tahoma;">P.O. Le charg&eacute; d&rsquo;Etudes</span></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
+    <span style="font-family:Tahoma;">Le charg&eacute; d&rsquo;Etudes</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Times New Roman';">&nbsp;</span></p>
@@ -72,12 +54,16 @@
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:14pt;"><span style="font-family:'Bookman Old Style'; font-size:14pt;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><em>
-    <span style="font-family:'Segoe Print'; background-color:#ffffff;">Mohamadou Moustapha NIANG</span></em></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><em>
+    <p style="margin-top:0pt; margin-left:40.2pt; margin-bottom:0pt; text-align:center; font-size:13pt;"><strong>
+    <span style="font-family:'Segoe Print';margin-left:293.2pt; background-color:#ffffff;">{{user.prenom }} {{user.nom }}</span></em></p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
+     <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
+      <p style="margin-top:0pt; margin-bottom:0pt; font-size:5pt;"><span style="font-family:Tahoma;">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; font-size:10pt;"><span style="font-family:'Times New Roman';">NB </span>
     <span style="font-family:'Times New Roman';">&nbsp;</span><span style="font-family:'Times New Roman';">:
      l&rsquo;attestation d&eacute;livr&eacute;e est valable pour une dur&eacute;e de neuf (9) mois.</span></p>

@@ -37,12 +37,12 @@ class VisiteType extends AbstractType
             ->add('nom_visiteur', TextType::class, [
                 'empty_data' => '',
                 'label' => 'Votre nom:',
-               // "disabled" => $edit
+                "disabled" => $edit
             ])
             ->add('prenom_visiteur', TextType::class, [
                 'empty_data' => '',
                 'label' => 'Votre prenom:',
-                //"disabled" => $edit
+                "disabled" => $edit
             ])
             ->add('adresse', TextType::class, [
                 'empty_data' => '',
@@ -60,7 +60,7 @@ class VisiteType extends AbstractType
                 'empty_data' => null,
                 'label' => 'Lieu de Naissance:',
                 'required' => true,
-              //  "disabled" => $edit
+                //"disabled" => $edit
             ])
             ->add('matricule', TextType::class, [
                 'empty_data' => null,
@@ -76,16 +76,17 @@ class VisiteType extends AbstractType
             ->add('cin', TextType::class, [
                 'empty_data' => '',
                 'label' => 'Numéro d\'identité nationale:',
-                'constraints'   =>  new Regex([
-                    'pattern' => "/^(^(^(\d{1}([a-z]|\d{1})\d{11})$|\d{14}$)|[a-z]\d{8})$/i",
-                    'message'   =>  "Le numéro saisi n'est pas valide, vérifiez qu'il s'agit bien du numero court derriére la carte"
-                ]),
+                'required' => true,
+                // 'constraints'   =>  new Regex([
+                //     'pattern' => "/^(^(^(\d{1}([a-z]|\d{1})\d{11})$|\d{14}$)|[a-z]\d{8})$/i",
+                //     'message'   =>  "Le numéro saisi n'est pas valide, vérifiez qu'il s'agit bien du numero court derriére la carte"
+                // ]),
                // "disabled" => $edit
             ])
             ->add('CNIname', FileType::class, [
                 'label' => 'Scanne de la CIN',
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
                 'constraints' => [
                     new File([
                         'maxSize' => '4096k',

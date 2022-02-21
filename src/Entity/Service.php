@@ -49,11 +49,17 @@ class Service
      */
     private $visites;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Corps", mappedBy="service")
+     */
+    private $corps;
+
     public function __construct()
     {
         $this->motifDemandes = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->visites = new ArrayCollection();
+        $this->corps = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -193,6 +199,37 @@ class Service
     public function __toString()
     {
         return $this->nom;
+    }
+
+    /**
+     * @return Collection|Corps[]
+     */
+    public function getCorps(): Collection
+    {
+        return $this->corps;
+    }
+
+    public function addCorps(Corps $corps): self
+    {
+        if (!$this->corps->contains($corps)) {
+            $this->corps[] = $corps;
+            $corps->setService($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCorps(Corps $corps): self
+    {
+        if ($this->corps->contains($corps)) {
+            $this->corps->removeElement($corps);
+            // set the owning side to null (unless already changed)
+            if ($corps->getService() === $this) {
+                $corps->setService(null);
+            }
+        }
+
+        return $this;
     }
 }
 

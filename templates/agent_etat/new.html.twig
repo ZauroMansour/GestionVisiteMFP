@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AgentEtat{% endblock %}
+
+{% block body %}
+    <h1>Create new AgentEtat</h1>
+
+    {{ include('agent_etat/_form.html.twig') }}
+
+    <a href="{{ path('agent_etat_index') }}">back to list</a>
+{% endblock %}

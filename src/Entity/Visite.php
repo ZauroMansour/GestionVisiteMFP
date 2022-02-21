@@ -38,8 +38,7 @@ class Visite
     private $prenom_visiteur;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Merci de renseigner votre adresse")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adresse;
 
@@ -49,22 +48,24 @@ class Visite
     private $date_visite;
 
     /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Merci de rediger votre demande")
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_demande;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
      */
     private $demande;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\MotifDemande", inversedBy="visites")
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotBlank(message="Merci de selectionner l'objet de votre demande")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $motifDemande;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Departement", inversedBy="visites")
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotBlank(message="Merci de renseigner votre département")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $departement;
 
@@ -75,14 +76,13 @@ class Visite
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="Merci de renseigner votre adresse email")
      */
     private $email;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Region", inversedBy="visites")
-     * @Assert\NotBlank(message="Merci de renseigner votre région de résidence")
      */
     private $region;
 
@@ -112,8 +112,7 @@ class Visite
     private $CNIname;
 
     /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank(message="Merci de renseigner votre date de naissance")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $datenaiss;
 
@@ -130,12 +129,24 @@ class Visite
     private $structure;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ministere", inversedBy="visites")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $ministere;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Thematique", inversedBy="visites")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $thematique;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $reponse;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $genre;
 
@@ -151,7 +162,7 @@ class Visite
 
     public function setNomVisiteur(string $nom_visiteur): self
     {
-        $this->nom_visiteur = $nom_visiteur;
+        $this->nom_visiteur = strtoupper($nom_visiteur);
 
         return $this;
     }
@@ -163,7 +174,7 @@ class Visite
 
     public function setPrenomVisiteur(string $prenom_visiteur): self
     {
-        $this->prenom_visiteur = $prenom_visiteur;
+        $this->prenom_visiteur = strtoupper($prenom_visiteur);
 
         return $this;
     }
@@ -188,6 +199,18 @@ class Visite
     public function setDateVisite(\DateTimeInterface $date_visite): self
     {
         $this->date_visite = $date_visite;
+
+        return $this;
+    }
+
+    public function getDateDemande(): ?\DateTimeInterface
+    {
+        return $this->date_demande;
+    }
+
+    public function setDateDemande(\DateTimeInterface $date_demande): self
+    {
+        $this->date_demande = $date_demande;
 
         return $this;
     }
@@ -360,6 +383,30 @@ class Visite
         return $this;
     }
 
+    public function getMinistere(): ?Ministere
+    {
+        return $this->ministere;
+    }
+
+    public function setMinistere(?Ministere $ministere): self
+    {
+        $this->ministere = $ministere;
+
+        return $this;
+    }
+
+    public function getThematique(): ?Thematique
+    {
+        return $this->thematique;
+    }
+
+    public function setThematique(?Thematique $thematique): self
+    {
+        $this->thematique = $thematique;
+
+        return $this;
+    }
+
     /**
      * Get the value of profession
      */ 
@@ -395,7 +442,7 @@ class Visite
      */ 
     public function setLieunaiss($lieunaiss)
     {
-        $this->lieunaiss = $lieunaiss;
+        $this->lieunaiss = strtoupper($lieunaiss);
 
         return $this;
     }

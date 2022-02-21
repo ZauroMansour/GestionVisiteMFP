@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Agent de l'Etat {% endblock %}
+
+{% block body %}
+    <div class="container" >
+        <div id="wizard_container">
+            <!-- Leave input above for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="question_title">
+                    <h4>Demande de mise à jour de l'agent </h4> 
+                    {# {{ agent_etat.prenom }} {{ agent_etat.nom }} matricule de solde {{ agent_etat.matricule }} </h3> #}
+                </div>
+                <br>
+                <div class="row">
+                    <table class="display responsive" align= 'center' width= 100%>
+                        <tbody>
+                            <tr class="table-danger">
+                                <th >Numéro CIN</th>
+                                <td>{{ agent_etat.cni }}</td>
+                            </tr>
+                            <tr class=>
+                                <th>Matricule de solde</th>
+                                <td>{{ agent_etat.matricule }}</td>
+                            </tr>
+                            <tr class="table-primary">
+                                <th>Nom</th>
+                                <td>{{ agent_etat.nom}}</td>
+                            </tr>
+                            <tr class=>
+                                <th>Prenom</th>
+                                <td>{{ agent_etat.prenom }}</td>
+                            </tr>
+                            <tr class=>
+                                <th>Date de naissance</th>
+                                <td>{{ agent_etat.datenaiss ? agent_etat.datenaiss|date('d-m-Y') : '' }}</td>
+                            </tr>
+                            <tr class="table-info">
+                                <th>adresse email</th>
+                                <td>{{ agent_etat.email }}</td>
+                            </tr>
+                            <tr class=>
+                                <th>Téléphone</th>
+                                <td>{{ agent_etat.telephone }}</td>
+                            </tr>
+                            <tr class=>
+                                <th>Adresse</th>
+                                <td>{{ agent_etat.adresse }}</td>
+                            </tr> 
+                            <tr class="table-warning">
+                                <th>Corps de l'agent</th>
+                                <td>{{ agent_etat.corps}}</td>
+                            </tr>
+                            <tr class=>
+                                <th>Demande</th>
+                                <td>{{ agent_etat.demande }}</td>
+                            </tr> 
+                            <tr class="table-active" >
+                                <th>Motif(s) de la demande </th>
+                                <td>  
+                                    {% for reclamation in agent_etat.reclamations %}
+                                        <br>{{ reclamation.libelle }} </br> 
+                                    {% endfor %}
+                                </td>
+                            </tr> 
+                            <tr class=>
+                                <th>Scanne de la pièce justificative </th>
+                                <td>  
+                                    {% for image in agent_etat.images %}
+                                     {# <img src="{{ asset('/uploads/piecesjointes' ~ image.name) }}" alt="Image" width="250"> #}
+                                     <a href="{{ asset('uploads/piecesjointes/' ~ image.name ) }}" target="_blank">Voir la pièce justificative </a>
+                                    {% endfor %}
+                                </td>
+                                <br>
+                                {# <td><a href="{{ asset('uploads/' ~ agent_etat.CNIName) }}" target="_blank">Voir la justification </a></td> #}
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div align = "center">
+                    <a class="btn btn-dark" href="{{ path('agent_etat_index') }}">Retour à la liste</a>
+                    <a class="btn btn-danger" href="{{ path('agent_etat_rejet', {'id': agent_etat.id}) }}">Rejeter demande </a>
+                    <a class="btn btn-success" href="{{ path('agent_etat_edit', {'id': agent_etat.id}) }}">Traiter demande</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# {{ include('agent_etat/_delete_form.html.twig') }} #}
+{% endblock %}

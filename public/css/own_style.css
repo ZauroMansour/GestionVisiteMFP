@@ -238,6 +238,10 @@ a.demandeok {
     color:green !important
 }
 
+a.demandeokR {
+    color:rgb(25, 10, 231) !important
+}
+
 a.demandenok {
     color:red !important
 }
