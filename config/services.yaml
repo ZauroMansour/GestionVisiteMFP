@@ -4,7 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+<<<<<<< HEAD
     piecejointe: '%kernel.project_dir%/public/uploads/piecesjointes'
+=======
+    images_directory: '%kernel.project_dir%/public/uploads/piecesjointes'
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
 services:
     # default configuration for services in *this* file
     _defaults:

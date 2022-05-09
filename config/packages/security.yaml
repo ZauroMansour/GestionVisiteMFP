@@ -37,6 +37,9 @@ security:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/visite/list, roles: ROLE_USER }
+<<<<<<< HEAD
         - { path: ^/agentetat, roles: ROLE_USER }
+=======
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
         - { path: ^/formation/fp_admin, roles: ROLE_USER }
         - { path: ^/visite/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }

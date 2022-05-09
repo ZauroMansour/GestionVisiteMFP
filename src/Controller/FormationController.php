@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Formation;
 use App\Entity\Thematique;
+<<<<<<< HEAD
+=======
+use App\Entity\User;
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
 use App\Form\Formation1Type;
 use App\Repository\FormationRepository;
 use DateTime;
@@ -23,10 +27,32 @@ class FormationController extends AbstractController
      */
     public function index(FormationRepository $formationRepository): Response
     {
+<<<<<<< HEAD
         
         return $this->render('formation/index.html.twig', [
             'formations' => $formationRepository->findAll(),
         ]);
+=======
+        // if (!$this->getUser()->getActive()) {
+        //     $this
+        //         ->get('session')->getFlashBag()
+        //         ->add('resetpwd', "Vous devez reinitialiser votre mot de passe!");
+        //     return $this->redirectToRoute('reset_password');
+        // }
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $formation = $formationRepository->findBy([], ['id' => 'DESC']);
+         }
+         Else{
+            $formation = $formationRepository->findAll();   
+
+         }
+         return $this->render('formation/index.html.twig', [
+            //'formations' => $formationRepository->findAll(),
+            'formations' => $formation,
+         ]);
+
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
     }
 
     /**
@@ -36,6 +62,10 @@ class FormationController extends AbstractController
     {
         $formation = new Formation();
         $formation->setDateVisite(new DateTime());
+<<<<<<< HEAD
+=======
+        //dump($formation);
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
         $form = $this->createForm(Formation1Type::class, $formation);
         $form->handleRequest($request);
 
@@ -66,6 +96,10 @@ class FormationController extends AbstractController
     {
         return $this->render('formation/show.html.twig', [
             'formation' => $formation,
+<<<<<<< HEAD
+=======
+//            'thematique' => $thematique,
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
         ]);
     }
 

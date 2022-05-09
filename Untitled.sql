@@ -1,0 +1,1 @@
+SELECT * FROM visite.reclamation_agent_etat;

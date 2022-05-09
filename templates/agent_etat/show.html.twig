@@ -67,8 +67,12 @@
                                 <th>Scanne de la pièce justificative </th>
                                 <td>  
                                     {% for image in agent_etat.images %}
+<<<<<<< HEAD
                                      {# <img src="{{ asset('/uploads/piecesjointes' ~ image.name) }}" alt="Image" width="250"> #}
                                      <a href="{{ asset('uploads/piecesjointes/' ~ image.name ) }}" target="_blank">Voir la pièce justificative </a>
+=======
+                                        <img src="{{ asset('/uploads/piecesjointes' ~ image.name) }}" alt="Image" width="250">
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
                                     {% endfor %}
                                 </td>
                                 <br>

@@ -11,6 +11,10 @@ use App\Entity\Thematique;
 use App\Entity\Ministere;
 use App\Entity\Visite;
 use App\Repository\MotifDemandeRepository;
+<<<<<<< HEAD
+=======
+use PhpParser\Parser\Multiple;
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -56,7 +60,11 @@ class FormationType extends AbstractType
             ])
             ->add('profession', TextType::class, [
                 'empty_data' => null,
+<<<<<<< HEAD
                 'label' => 'Votre profession:',
+=======
+                'label' => 'Votre fonction:',
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
                 'required' => true,
                 "disabled" => $edit
             ])
@@ -72,6 +80,7 @@ class FormationType extends AbstractType
                 'required' => true,
                 "disabled" => $edit
             ])
+<<<<<<< HEAD
             ->add('thematique', EntityType::class, [
                 'label' => 'Choix thématiques:',
                 'class' => Thematique::class,
@@ -79,6 +88,18 @@ class FormationType extends AbstractType
                 'required' => true,
                 'placeholder' => "Choisir votre thématique",
             ])
+=======
+            ->add('thematique', ChoiceType::class, array(
+                'empty_data' => null,  
+                'choice_filter' => array(
+                  "L'art de communiquer" => "L'art de communiquer",
+                  "La gestion de projet (succès et échec)" => "La gestion de projet (succès et échec)",
+                  "Prenez votre vie en main!" => "Prenez votre vie en main!"),
+                  'expanded' => true,
+                  'multiple' => true, 
+                 ))
+            
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
             ->add('ministere', EntityType::class, [
                 'label' => 'Ministère/Administration:',
                 'class' => Ministere::class,

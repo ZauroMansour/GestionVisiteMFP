@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 3306
+    database_name: cmsfp
+    database_user: root
+    database_password: cmsfp@2018
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: monadresse@mail.fr
+    mailer_password: null
+    secret: 07c12f5ae5dd188d82e67d6d84a642377e844461

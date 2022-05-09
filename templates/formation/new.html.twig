@@ -70,6 +70,7 @@
                                 <div class="form-group ">
                                     {{ form_label(form.thematique) }}
                                     {{ form_errors(form.thematique) }}
+<<<<<<< HEAD
                                     <div class="">
                                         {{ form_widget(form.thematique) }}
                                     </div>
@@ -84,6 +85,23 @@
             <div id="bottom-wizard">
                 <button type="submit" class="submit">Soumettez votre demande</button>
             </div>
+=======
+                                        <div class="">
+                                            {{ form_widget(form.thematique) }}
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                        <div id="bottom-wizard">
+                            <button type="submit" class="submit">Soumettez votre demande</button>
+                        </div>
+                </div>
+                <!-- /Last step ============================== -->
+            </div>
+
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
             {{ form_widget(form._token) }}
             {{ form_end(form, {'render_rest': false}) }}
         </div>

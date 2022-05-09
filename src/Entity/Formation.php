@@ -46,8 +46,12 @@ class Formation
      * @Assert\Length(
      *      min = 7,
      *      max = 7,
+<<<<<<< HEAD
      *      minMessage = "Veuillez revoir le format de votre matricule",
      *      maxMessage = "Veuillez revoir le format de votre matricule"
+=======
+     *      minMessage = "Veuillez revoir le format de votre matricule"
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
      * )
      */
     private $matricule;

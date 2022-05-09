@@ -34,7 +34,10 @@ class Thematique
      */
     private $formations;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
     public function __construct()
     {
         $this->formations = new ArrayCollection();

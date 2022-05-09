@@ -15,4 +15,9 @@ return [
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
+<<<<<<< HEAD
+=======
+    Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
+    EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
+>>>>>>> fc5a89a0af00c8a02c4908636a64e4846b943988
 ];

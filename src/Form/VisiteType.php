@@ -46,12 +46,13 @@ class VisiteType extends AbstractType
             ])
             ->add('adresse', TextType::class, [
                 'empty_data' => '',
+                'required' => false,
                 'label' => 'Votre adresse:',
                 "disabled" => $edit
             ])
             ->add('datenaiss', DateType::class, array(
                 'label' => 'Date de naissance:',
-                'required' => true,
+                'required' => false,
                 'widget' => 'single_text',
                 'empty_data' => date("now"),
                // "disabled" => $edit
@@ -104,6 +105,7 @@ class VisiteType extends AbstractType
             ->add('demande', TextareaType::class, [
                 'empty_data' => '',
                 'label' => 'Decrivez votre demande:',
+                'required' => false,
                 "disabled" => $edit
             ])
             ->add('telephone', TextType::class, [
@@ -134,7 +136,7 @@ class VisiteType extends AbstractType
                 'label' => 'Région de résidence:',
                 'class' => Region::class,
                 'choice_label' => 'libelle',
-                'required' => true,
+                'required' => false,
                 'placeholder' => 'Choisir votre région de résidence',
             ])
             ->add('reponse', TextareaType::class, [
